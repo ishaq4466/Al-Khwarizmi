@@ -1,16 +1,15 @@
 from random import shuffle
-
 def isSorted(A):
 	for i in range(len(A)-1):
 		if a[i]>a[i+1]:
 			return False
 	return True
+
 def bogoNow(A):
 	print("A is Bogging.......")
 	while not isSorted(A):
 		shuffle(A)
 		#print("Suffffffling....")
-				
 	return A
 
 
@@ -24,6 +23,6 @@ print("A after getting Bogged: "+str(bogoNow(a)))
 """
 Worst case complexity is O(infinity)
 as number of n increases e.g:n=11
-output time cannot be predicted
+output time cannot be predicted.
 """
 
