@@ -21,7 +21,7 @@ print("A after getting Bogged: "+str(bogoNow(a)))
 
 
 """
-Worst case complexity is O(infinity)
+Worst case complexity is O(∞)
 as number of n increases e.g:n=11
 output time cannot be predicted.
 """
