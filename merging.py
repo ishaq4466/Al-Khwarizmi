@@ -31,3 +31,15 @@ b=[int(x) for x in input().split(" ")]
 print("A:"+str(a))
 print("B:"+str(b))
 print("Merged: "+str(merge(a,b)))
+
+"""
+1st Comparison:
+
+		A 	B 			C
+	i->	1	2<-j 		1<-- 1 gets added from A since
+		3	13				a[i]<b[j] nd i=i+1	
+		5	18
+		6
+len(A)->m 	n<-len(B)
+
+"""
