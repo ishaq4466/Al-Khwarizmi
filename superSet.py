@@ -26,3 +26,28 @@ print(a)
 # print(a[-1:])
 print("=============================================")
 print("Finally we got our power set: "+str(genSubset(a)))
+
+
+
+"""
+Algo:
+Check whether the len of list is 0,
+if yes:
+	than return [[]]====>List of empty list
+else:
+	*Initialize list Without last element A[:-1]
+	 Recursively Call genSubset(A[:-1])==>listWithoutLastElemnt
+	*Store lastElement of List A into lastElementToAdd=A[-1:]
+	*Initialize a newList []
+	*Now Loop through listWithoutLastElemnt using vriable x:
+		append (x + listWithoutLastElemnt) to newList
+	*Fially Return (new+listWithoutLastElemnt)
+	
+
+
+A=[1,2,10]
+[[]]
+[[],[1]]
+[[],[1],[2],[1,2]]
+[[],[1],[2],[1,2],[10],[1,10],[2,10],[1,2,10]]
+"""
