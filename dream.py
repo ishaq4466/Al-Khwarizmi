@@ -15,22 +15,25 @@ def genSet(A):
 #a=[float(x) for x in input().split()]
 #print(a,a[:-1],a[-1:])
 #a=['a','b','c','d','e','f','g','f','h']
-a=[1.6, 5.4, 6.8, 9.0, 9.5, 4.3, 7.5, 6.9, 8.6, 10.1, 15.2, 12.6,1.5,1.2,1.6,1.9,1,5.6,1.8,2.6,3.6,8.9]
+a=[9.5,9.5,9,11,9.5,8.5,8.5,9.0,8.5,8.5,8.5]
+b=sorted(a,reverse=True)
 print("points:%s"%(a))
-print("Lenght of points: "+str(len(a)))
+print("points:%s"%(b))
+c=a+b
+print("points:%s"%(c))
+
+print("Total length of points: "+str(len(a+b)))
 print("============================================")
-
-list1=genSet(a)
-
+list1=genSet(c)
 
 #print(list1)
 print("============================================")
 players=11
 point=100
-print("No of players: %d \nRequired point<=%d"%(players,point))
-#print("No of players: %d \nRequired point=%d"%(players,point))
+#print("No of players Required: %d \nRequired point<=%d"%(players,point))
+print("No of players: %d \nRequired point=%d"%(players,point))
 for elements in list1:
-	if len(elements)==players and sum(elements)<=point:
+	if len(elements)==players and sum(elements)==point:
 		print("%s Tot_Points:[%d]"%(str(elements),sum(elements)))
 
 
