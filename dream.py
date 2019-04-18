@@ -1,4 +1,26 @@
 import random
+def getList(A):
+	returnList=[]
+	for i in range(len(A)):
+		#print(A[i])
+		for  x in A[i]:
+			returnList.append(x)
+	#print(returnList)	
+	return returnList
+
+def getPlayersNme(A,D):
+	retDict={}
+	#for k,v in D.items():
+	for k,v in zip(D.keys(),A):
+		if v not in retDict:
+			retDict[v]=[k+"("+str(v)+")"]
+
+		else:
+			#retDict[v].append(k)
+			retDict[v].append(k+"("+str(v)+")")
+#	print(retDict)
+	return getList(retDict.values())
+
 def genSet(A):
  		if len(A)==0:
  			return [[]]
@@ -8,6 +30,8 @@ def genSet(A):
  		for x in listOfElementsWithoutLastElement:
  			newList.append(lastElement+x)
  		return newList+listOfElementsWithoutLastElement
+
+
 
 
 #a=random.sample(range(1,10),22)
@@ -76,8 +100,6 @@ print("No of players: %d \nRequired point=%d"%(players,point))
 for elements in list2:
 	if len(elements)==players and sum(elements)==point:
 		#print("%s Tot_Points:[%d]"%(str(elements),sum(elements)))
-		for x in range(len(elements)):
-			print(players[elements[x]],end=",")
-		print("Tot_Points:[%d]"%(sum(elements)))
+		print(getPlayersNme(elements,players))
 
 
