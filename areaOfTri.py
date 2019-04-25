@@ -1,6 +1,6 @@
 def getCross(A,B):
 #	print(round((A[0]*B[1])+(A[1]*B[0]),2))
-	return round(((A[0]*B[1])+(A[1]*B[0])),2)
+	return round(((A[0]*B[1])-(A[1]*B[0])),2)
 
 def getAreaOfTri(vertices):
 	crossPro=abs(getCross(vertices[0],vertices[1]))
@@ -31,4 +31,4 @@ print("Vertex A: %s\nVertex B: %s\nArea:%0.2f Units"%(str(A),str(B),getAreaOfTri
 # Algo:
 # Simply take cross-Product of AxB and divide it by 2
 # since O is at origin
-
+# AxB=AxBy-AyBx

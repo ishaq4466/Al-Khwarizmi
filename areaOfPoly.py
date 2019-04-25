@@ -1,6 +1,6 @@
 def getCross(A,B):
 	# print(round((A[0]*B[1])+(A[1]*B[0]),2))
-	return round(((A[0]*B[1])+(A[1]*B[0])),2)
+	return round(((A[0]*B[1])-(A[1]*B[0])),2)
 
 def getAreaOfTri(vertices):
 	crossPro=abs(getCross(vertices[0],vertices[1]))
