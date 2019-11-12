@@ -5,7 +5,7 @@ import java.lang.*;
 
 
 
-class DataStruct1
+class HackerSolutions1
 {
 		// Reversing the array
 	  static int[] reverseArray(int[] a) {
@@ -82,7 +82,53 @@ class DataStruct1
     	return 0;
 	   }
 
-	
+	  static int[] matchingStrings(String[] strings, String[] queries) {
+	  	int returnArray[]=new int[queries.length];
+	  	Map<String,Integer> stringsMap=new HashMap<String,Integer>();
+	  
+
+		  	for(int i=0;i<strings.length;i++)
+		  	{
+		  		Integer n=stringsMap.get(strings[i]);
+		  		if(n==null)
+		  			stringsMap.put(strings[i],1);
+		  		else
+		  		{
+		  			++n;
+		  			stringsMap.put(strings[i],n);
+		  		}
+		  	}
+
+		  for(int i=0;i<queries.length;i++)
+		  {	
+		  	if(stringsMap.containsKey(queries[i])==false)
+		  		returnArray[i]=0;
+		  	else
+		  		returnArray[i]=stringsMap.get(queries[i]);
+		  }
+		  return returnArray;
+	   }
+
+
+// [1,2,3,4,5]--> [2,3,4,5,1]	
+	static int[] rotateLeftArr(int arr[],int d)
+	{
+
+		for(int i=0; i<d;i++)
+		{
+			int temp=arr[0];
+			for(int j=0;j<arr.length-1;j++)
+			{
+				arr[j]=arr[j+1];
+				System.out.print(arr[j]+" ");	
+			}
+			arr[arr.length-1]=temp;
+			System.out.print(arr[arr.length-1]+" ");	
+			System.out.println();
+		}
+
+		return arr;
+	}
 
 
 	public static void main(String args[])
@@ -105,8 +151,52 @@ class DataStruct1
 			{ 0 , 0 , 8  ,6 ,6 ,0},
 			{ 0 , 0,  0 ,-2 ,0 ,0},
 			{0  ,0,  1  ,2, 4, 0}};
-			System.out.println(hourglassSum1(arr2));*/
-			
+			System.out.println(hourglassSum1(arr2));
+			*/
+			// Left Array rotation solution
+			/*
+				int a[]={1,2,3,4,5};	
+			  int d=2; int array[];
+				for(int i=0; i<a.length;i++) {
+            array[(i+n-d)%n] = a[i];
+        	}
+			a=rotateLeftArr(a,4);
+			for(int i=0;i<a.length;i++)
+				System.out.print(a[i] +" ");
+			System.out.println();
+			// System.out.println(Arrays.toString(rotateLeftArr(a,4)));
+			*/
+
+			/* 
+				// Sparse Arrays
+				//String strings[]={"def","de","fgh"}, queries[]={"de","lmn","fgh"};
+				String strings[]={"aba","baba","aba","xzxb"}, queries[]={"aba","xzxb","ab"};
+				System.out.println("Strings: "+Arrays.toString(strings));
+	  		System.out.println("Queries: "+Arrays.toString(queries));
+				System.out.println(Arrays.toString(matchingStrings(strings,queries)));*/
+
+				//
+
 
 			}
-}
+	}
+
+
+/*
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int d = scan.nextInt();
+        int[] array = new int[n];
+        for(int i=0; i<n;i++) {
+            array[(i+n-d)%n] = scan.nextInt();
+        }
+        for(int i=0; i<n;i++) {
+            System.out.print(array[i] + " ");
+        }      
+    }
+*/
+
+
