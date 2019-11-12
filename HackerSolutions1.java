@@ -129,7 +129,35 @@ class HackerSolutions1
 
 		return arr;
 	}
+		/*		int n=5; int queries[][]={
+																		{1,2,100},
+																		{2,5,100},
+																		{3,4,100},
+																		{1,3,200};   }
+		*/
+		
 
+		static long arrayManipulation(int n, int[][] queries) {
+					System.out.println(n+" "+queries.length);
+
+                int returnArray[]=new int[n];
+               System.out.println(Arrays.toString(returnArray));
+                for(int i=0;i<queries.length;i++)
+                {		
+                	System.out.println(Arrays.toString(queries[i]));
+                    for(int start=queries[i][0]-1;start<queries[i][1];start++)
+                    {
+                        returnArray[start]+=queries[i][2];
+                    }
+                   System.out.println(Arrays.toString(returnArray));
+                }
+                long maxElement=0;
+                for(int i=0;i<returnArray.length;i++)
+                    if(maxElement<returnArray[i])
+                        maxElement=returnArray[i];
+                return maxElement;
+
+                }
 
 	public static void main(String args[])
 	{
@@ -145,7 +173,7 @@ class HackerSolutions1
 			// 2D hour glass sum
 			//int arr2[][]={{1,1,1,0,0,0},{0,1,0,0,0,0},{1,1,1,0,0,0},{0,0,2,4,4,0},{0,0,0,2,0,0},{0,0,1,2,4,0}};
 			int arr2[][]={
-				{-9,-9 ,-9 , 1, 1, 1},
+			{-9,-9 ,-9 , 1, 1, 1},
 			{ 0 ,-9 , 0,  4 ,3 ,2},
 			{-9 ,-9 ,-9 , 1 ,2 ,3},
 			{ 0 , 0 , 8  ,6 ,6 ,0},
@@ -175,8 +203,15 @@ class HackerSolutions1
 	  		System.out.println("Queries: "+Arrays.toString(queries));
 				System.out.println(Arrays.toString(matchingStrings(strings,queries)));*/
 
-				//
-
+				// Array manipulation
+				// n--> size of the array to be initialized to be zero.
+				// queries=[ 1 2 100] ==> add 100 between index 1 and 2
+ 
+				// int n=5; int queries[][]={{1,2,100},{2,5,100},{1,2,100},{1,3,100},{2,5,100}};
+				int n=10; int queries[][]={ {1	,5,3}, {4,8,7}, {6,9,1} };
+				
+				long result = arrayManipulation(n, queries); 
+				System.out.println(result);
 
 			}
 	}
