@@ -136,28 +136,49 @@ class HackerSolutions1
 																		{1,3,200};   }
 		*/
 		
+		/*	Psudo;
+		function arrayManupulation:
+			Pass in: integer n for size of array , interger array queries[][] for queries
+			
+			Initialize an array returnArray[] of size n with all value to be 0
+			Initialize nops=queries.length, i=0
 
+			while i<nops,do;
+				initialize startIndex=queries[i][0]-1, endIndex= queries[i][1], valueToAdd=queries[i][2]
+				for startIndex in range startIndex to endIndex:
+						returnArray[startIndex]+= valueToAdd
+						increment startIndex by 1 
+				end for
+				print returnArray 
+				increment i by 1
+				return maxElement(returnArray)
+			end while
+
+		*/
 		static long arrayManipulation(int n, int[][] queries) {
-					System.out.println(n+" "+queries.length);
+			//System.out.println(n+" "+queries.length);
+      long returnArray[]=new long[n];			// for really long values test cases
+			int nops=queries.length,i=0;
+			while(i<nops)
+			{
+				int valueToAdd=queries[i][2];
+				for(int startIndex=queries[i][0]-1,endIndex=queries[i][1];startIndex<endIndex;startIndex++)
+				{
+									returnArray[startIndex]+=valueToAdd;		
+				}
+		//		System.out.println(Arrays.toString(returnArray));
+				i++;
+			
+			}
 
-                int returnArray[]=new int[n];
-               System.out.println(Arrays.toString(returnArray));
-                for(int i=0;i<queries.length;i++)
-                {		
-                	System.out.println(Arrays.toString(queries[i]));
-                    for(int start=queries[i][0]-1;start<queries[i][1];start++)
-                    {
-                        returnArray[start]+=queries[i][2];
-                    }
-                   System.out.println(Arrays.toString(returnArray));
-                }
-                long maxElement=0;
-                for(int i=0;i<returnArray.length;i++)
-                    if(maxElement<returnArray[i])
-                        maxElement=returnArray[i];
-                return maxElement;
+      long maxElement=0;
+      for(int j=0;j<returnArray.length;j++)
+          if(maxElement<returnArray[j])
+              maxElement=returnArray[j];
 
-                }
+      return maxElement;
+
+      }
 
 	public static void main(String args[])
 	{
@@ -206,9 +227,10 @@ class HackerSolutions1
 				// Array manipulation
 				// n--> size of the array to be initialized to be zero.
 				// queries=[ 1 2 100] ==> add 100 between index 1 and 2
- 
-				// int n=5; int queries[][]={{1,2,100},{2,5,100},{1,2,100},{1,3,100},{2,5,100}};
-				int n=10; int queries[][]={ {1	,5,3}, {4,8,7}, {6,9,1} };
+ 	
+				int n=5; int queries[][]={{1,2,100},{2,5,100},{3,4,100}};
+				int queries[][]=createQuries();
+				// int n=10; int queries[][]={ {1	,5,3}, {4,8,7}, {6,9,1} };
 				
 				long result = arrayManipulation(n, queries); 
 				System.out.println(result);
