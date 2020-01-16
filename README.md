@@ -14,7 +14,6 @@ Table Of Content
 12. [Combi1](combi1.py)
 13. [Combi2](combi2.py)
 14. [DreamCraker](dreamCraker.py)
-17. [More-Pizza](more-pizza)
 
 
 
